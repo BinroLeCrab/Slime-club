@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
 public class PvManager : MonoBehaviour
 {
 
@@ -29,10 +28,10 @@ public class PvManager : MonoBehaviour
         if (m_PvOrigin <= 0)
         {
             Debug.Log("Joueur KO");
-        } else
-        {
+            GameOverScreen.SetActive(true);
+            Time.timeScale = 0;
+        } else {
             Debug.Log("PV du joueur :" + m_PvOrigin);
-            // GameOverScreen.SetActive(true);
         }
     }
 }
