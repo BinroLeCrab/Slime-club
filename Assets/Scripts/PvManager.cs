@@ -7,6 +7,7 @@ public class PvManager : MonoBehaviour
 {
 
     [SerializeField] private float m_PvOrigin;
+    [SerializeField] private GameObject GameOverScreen;
 
     Vector3 m_Origin;
     CharacterController m_CharacterController;
@@ -25,6 +26,13 @@ public class PvManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (m_PvOrigin <= 0)
+        {
+            Debug.Log("Joueur KO");
+        } else
+        {
+            Debug.Log("PV du joueur :" + m_PvOrigin);
+            // GameOverScreen.SetActive(true);
+        }
     }
 }
