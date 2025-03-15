@@ -1,31 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PvManager : MonoBehaviour
 {
-
-    [SerializeField] private float m_PvOrigin;
     [SerializeField] private GameObject GameOverScreen;
+
+    private GameObject PlayerOne;
+    private PlayerManger PlayerOneManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("PV du joueur :" + m_PvOrigin);
+        PlayerOne = GameObject.FindWithTag("Player");
+        if (PlayerOne != null)
+        {
+            PlayerOneManager = PlayerOne.GetComponent<PlayerManger>();
+            Debug.Log("PV du joueur :" + PlayerOneManager.getPv());
+        }
+        else
+        {
+            Debug.Log("Joueur non trouvé");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (m_PvOrigin <= 0)
+        IfGameOver();
+    }
+
+    private void IfGameOver()
+    {
+        if (PlayerOneManager.getPv() <= 0)
         {
             Debug.Log("Joueur KO");
             GameOverScreen.SetActive(true);
             Time.timeScale = 0;
-        } else {
-            Debug.Log("PV du joueur :" + m_PvOrigin);
+
+            // Réactive la souris
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Debug.Log("PV du joueur :" + PlayerOneManager.getPv());
             GameOverScreen.SetActive(false);
             Time.timeScale = 1;
+
+            // Cache la souris
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 }
