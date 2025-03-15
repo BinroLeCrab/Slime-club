@@ -8,14 +8,6 @@ public class PvManager : MonoBehaviour
     [SerializeField] private float m_PvOrigin;
     [SerializeField] private GameObject GameOverScreen;
 
-    Vector3 m_Origin;
-    CharacterController m_CharacterController;
-
-    private void Awake()
-    {
-        m_CharacterController = GetComponent<CharacterController>();
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +24,8 @@ public class PvManager : MonoBehaviour
             Time.timeScale = 0;
         } else {
             Debug.Log("PV du joueur :" + m_PvOrigin);
+            GameOverScreen.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 }
