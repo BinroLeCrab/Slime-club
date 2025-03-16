@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PvManager : MonoBehaviour
 {
     [SerializeField] private GameObject GameOverScreen;
+    [SerializeField] private TextMeshProUGUI PvText;
 
     private GameObject PlayerOne;
     private PlayerManger PlayerOneManager;
@@ -28,7 +30,16 @@ public class PvManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DisplayPv();
         IfGameOver();
+    }
+
+    private void DisplayPv()
+    {
+        if (PlayerOneManager != null && PvText != null)
+        {
+            PvText.text = PlayerOneManager.getPv() + " pv";
+        }
     }
 
     private void IfGameOver()

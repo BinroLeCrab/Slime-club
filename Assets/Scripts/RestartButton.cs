@@ -8,7 +8,6 @@ public class RestartButton : MonoBehaviour
     // Start is called before the first frame update
     public void RestartGame()
     {
-        Debug.Log("coucou");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // ReLoad the Scene at the start
     }
 }
