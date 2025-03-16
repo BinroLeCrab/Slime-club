@@ -19,7 +19,7 @@ public class PlayerManger : MonoBehaviour
         
     }
 
-    public void setPv (float pv)
+    private void setPv (float pv)
     {
         m_Pv = pv;
     }
@@ -27,5 +27,10 @@ public class PlayerManger : MonoBehaviour
     public float getPv()
     {
         return m_Pv;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        m_Pv -= damage;
     }
 }

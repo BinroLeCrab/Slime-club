@@ -10,7 +10,6 @@ public class TriggerDangerZone : MonoBehaviour
 
     private const string PLAYER_TAG = "Player";
     private GameObject currentOject;
-    private float m_NewPv;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,8 +17,7 @@ public class TriggerDangerZone : MonoBehaviour
         if (currentOject.tag == PLAYER_TAG)
         {
             Debug.Log("Player entre dans la zone dangereuse");
-            m_NewPv = currentOject.GetComponent<PlayerManger>().getPv() - m_Damage;
-            currentOject.GetComponent<PlayerManger>().setPv(m_NewPv);
+            currentOject.GetComponent<PlayerManger>().TakeDamage(m_Damage);
         }
     }
 
