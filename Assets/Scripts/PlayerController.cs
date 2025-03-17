@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManger : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float m_PvOrigin;
     private float m_Pv;

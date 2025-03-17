@@ -7,19 +7,16 @@ using TMPro;
 public class PvManager : MonoBehaviour
 {
     [SerializeField] private GameObject GameOverScreen;
-    [SerializeField] private TextMeshProUGUI PvText;
+    [SerializeField] private TextMeshProUGUI FirstPlayerPvText;
+    [SerializeField] private TextMeshProUGUI SecondPlayerPvText;
 
-    private GameObject PlayerOne;
-    private PlayerManger PlayerOneManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        PlayerOne = GameObject.FindWithTag("Player");
-        if (PlayerOne != null)
+        if (PlayerManager.Instance.FirstPlayer != null)
         {
-            PlayerOneManager = PlayerOne.GetComponent<PlayerManger>();
-            Debug.Log("PV du joueur :" + PlayerOneManager.getPv());
+            Debug.Log("PV du joueur 1 :" + PlayerManager.Instance.FirstPlayer.getPv());
         }
         else
         {
@@ -30,21 +27,34 @@ public class PvManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DisplayPv();
-        IfGameOver();
+        if (PlayerManager.Instance == null) return;
+    
+        if (PlayerManager.Instance.FirstPlayer != null && PlayerManager.Instance.SecondPlayer != null)
+        {
+            DisplayPv();
+            IfGameOver();
+        } else
+        {
+            Debug.Log("Ajoutez un deuxième joueur.");
+        }
     }
 
     private void DisplayPv()
     {
-        if (PlayerOneManager != null && PvText != null)
+        if (PlayerManager.Instance.FirstPlayer != null && FirstPlayerPvText != null)
         {
-            PvText.text = PlayerOneManager.getPv() + " pv";
+            FirstPlayerPvText.text = "J1: " + PlayerManager.Instance.FirstPlayer.getPv() + " pv";
+        }
+
+        if (PlayerManager.Instance.SecondPlayer != null && SecondPlayerPvText != null)
+        {
+            SecondPlayerPvText.text = "J2: " + PlayerManager.Instance.SecondPlayer.getPv() + " pv";
         }
     }
 
     private void IfGameOver()
     {
-        if (PlayerOneManager.getPv() <= 0)
+        if (PlayerManager.Instance.FirstPlayer.getPv() <= 0 || PlayerManager.Instance.SecondPlayer.getPv() <= 0)
         {
             Debug.Log("Joueur KO");
             GameOverScreen.SetActive(true);
@@ -56,7 +66,7 @@ public class PvManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("PV du joueur :" + PlayerOneManager.getPv());
+            Debug.Log("PV du joueur :" + PlayerManager.Instance.FirstPlayer.getPv());
             GameOverScreen.SetActive(false);
             Time.timeScale = 1;
 
