@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerManager : MonoBehaviour
 {
+    [SerializeField] private float m_PvOrigin;
+
     public static PlayerManager Instance { get; private set; }
     public PlayerController FirstPlayer { get; private set; }
     public PlayerController SecondPlayer { get; private set; }
@@ -48,10 +50,12 @@ public class PlayerManager : MonoBehaviour
         if (FirstPlayer == null)
         {
             FirstPlayer = playerInput.GetComponent<PlayerController>();
+            FirstPlayer.initPlayer(m_PvOrigin, "J1");
         }
         else if (SecondPlayer == null)
         {
             SecondPlayer = playerInput.GetComponent<PlayerController>();
+            SecondPlayer.initPlayer(m_PvOrigin, "J2");
         }
         else
         {
