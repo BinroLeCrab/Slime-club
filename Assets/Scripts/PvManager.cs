@@ -7,6 +7,7 @@ using TMPro;
 public class PvManager : MonoBehaviour
 {
     [SerializeField] private GameObject GameOverScreen;
+    [SerializeField] private TextMeshProUGUI LooserText;
     [SerializeField] private TextMeshProUGUI FirstPlayerPvText;
     [SerializeField] private TextMeshProUGUI SecondPlayerPvText;
 
@@ -56,7 +57,17 @@ public class PvManager : MonoBehaviour
     {
         if (PlayerManager.Instance.FirstPlayer.getPv() <= 0 || PlayerManager.Instance.SecondPlayer.getPv() <= 0)
         {
-            Debug.Log("Joueur KO");
+            if (PlayerManager.Instance.FirstPlayer.getPv() <= 0)
+            {
+                Debug.Log("Joueur 1 KO");
+                LooserText.text = "Joueur 1 KO";
+            }
+            else
+            {
+                Debug.Log("Joueur 2 KO");
+                LooserText.text = "Joueur 2 KO";
+            }
+
             GameOverScreen.SetActive(true);
             Time.timeScale = 0;
 

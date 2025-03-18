@@ -570,6 +570,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PvOrigin: 100
+--- !u!114 &544825470 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5524361327822263245, guid: 6a64dd296c2a7fd429778fafbb08c8d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 8026084841727661}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &571666977
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,6 +1514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameOverScreen: {fileID: 1994751550}
+  LooserText: {fileID: 544825470}
   FirstPlayerPvText: {fileID: 80665569}
   SecondPlayerPvText: {fileID: 1318727845}
 --- !u!4 &1768241791
@@ -2140,7 +2153,7 @@ PrefabInstance:
     - target: {fileID: 3800287287858656101, guid: 6a64dd296c2a7fd429778fafbb08c8d0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9037539201696600867, guid: 6a64dd296c2a7fd429778fafbb08c8d0,
         type: 3}

@@ -35,6 +35,3 @@ public class ScreenManager : MonoBehaviour
         }
     }
 }
-
-//GameOverScreen.SetActive(true);
-//PlayerManager.Instance.FirstPlayer
