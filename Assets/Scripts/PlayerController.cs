@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float m_Pv;
     [SerializeField] private string m_PlayerName;
+    [SerializeField] private TriggerAttackZone m_AttackZone;
 
     [SerializeField] private TextMeshProUGUI NameTag;
 
@@ -56,5 +57,18 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         m_Pv -= damage;
+    }
+
+    public void OnAttack()
+    {
+
+        if (m_AttackZone.getCurrentPlayer() != null)
+        {
+            Debug.Log("Attack !!");
+            if (m_AttackZone.getCurrentPlayer().getPv() <= 0) { 
+                return; 
+            }
+            m_AttackZone.getCurrentPlayer().TakeDamage(10);
+        }
     }
 }

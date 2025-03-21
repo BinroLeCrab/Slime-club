@@ -95,8 +95,9 @@ GameObject:
   - component: {fileID: 8793943195545149873}
   - component: {fileID: 873130044537592639}
   - component: {fileID: 7756623806315780013}
+  - component: {fileID: 514020096270458281}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Attack Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,6 +189,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &514020096270458281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048572266090417627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a84b28f4e9d764e8590173f8478301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damage: 0
+  m_Me: {fileID: 7573405780477170972}
 --- !u!1 &5911178597850311734
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,4 +806,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Pv: 0
   m_PlayerName: 
+  m_AttackZone: {fileID: 514020096270458281}
   NameTag: {fileID: 1850742826907967453}
