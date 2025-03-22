@@ -9,8 +9,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private string m_PlayerName;
     [SerializeField] private TriggerAttackZone m_AttackZone;
     [SerializeField] Animator m_AnimatorWeapon;
+    [SerializeField] Animator m_AnimatorDamage;
 
     [SerializeField] private TextMeshProUGUI NameTag;
+    [SerializeField] private TextMeshProUGUI DamageTag;
 
     [SerializeField] private GameObject m_SkinBlue;
     [SerializeField] private GameObject m_SkinRed;
@@ -76,6 +78,12 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         m_Pv -= damage;
+        if (DamageTag != null)
+        {
+            DamageTag.text = "-" + damage.ToString();
+        }
+        //m_AnimatorDamage.SetTrigger("TakeDamage");
+        m_AnimatorDamage.Play("Damage", 0, 0f);
     }
 
     public void OnAttack()
