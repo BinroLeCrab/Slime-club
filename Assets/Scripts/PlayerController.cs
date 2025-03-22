@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float m_Pv;
     [SerializeField] private string m_PlayerName;
     [SerializeField] private TriggerAttackZone m_AttackZone;
+    [SerializeField] Animator m_AnimatorWeapon;
 
     [SerializeField] private TextMeshProUGUI NameTag;
 
@@ -61,6 +62,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnAttack()
     {
+        m_AnimatorWeapon.SetTrigger("Attack");
 
         if (m_AttackZone.getCurrentPlayer() != null)
         {

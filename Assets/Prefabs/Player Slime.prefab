@@ -112,8 +112,8 @@ Transform:
   m_GameObject: {fileID: 2048572266090417627}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.45, z: 1.3546}
-  m_LocalScale: {x: 1.5737275, y: 1, z: 1.4890919}
+  m_LocalPosition: {x: 0, y: 0.45, z: 1.4918}
+  m_LocalScale: {x: 1.5737275, y: 1, z: 1.7635314}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7084712803420540838}
@@ -818,4 +818,5 @@ MonoBehaviour:
   m_Pv: 0
   m_PlayerName: 
   m_AttackZone: {fileID: 514020096270458281}
+  m_AnimatorWeapon: {fileID: 5757197418363900841}
   NameTag: {fileID: 1850742826907967453}
