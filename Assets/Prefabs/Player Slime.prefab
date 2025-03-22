@@ -513,7 +513,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 31c78dcb8078a8e4d8c7bf29b0101423,
         type: 3}
       propertyPath: m_Name
-      value: '[Slime Club] - Slime Rouge V4'
+      value: Slime Rouge
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 31c78dcb8078a8e4d8c7bf29b0101423,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -523,6 +528,12 @@ PrefabInstance:
 --- !u!4 &5992424604559924341 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 31c78dcb8078a8e4d8c7bf29b0101423,
+    type: 3}
+  m_PrefabInstance: {fileID: 6098972379594603422}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6368809783183181519 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 31c78dcb8078a8e4d8c7bf29b0101423,
     type: 3}
   m_PrefabInstance: {fileID: 6098972379594603422}
   m_PrefabAsset: {fileID: 0}
@@ -631,6 +642,91 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1001 &6142583336523609858
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7084712803420540838}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 8fcd8d7138d27f34f88b331e064fa8ef,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8fcd8d7138d27f34f88b331e064fa8ef,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8fcd8d7138d27f34f88b331e064fa8ef,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8fcd8d7138d27f34f88b331e064fa8ef,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8fcd8d7138d27f34f88b331e064fa8ef,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8fcd8d7138d27f34f88b331e064fa8ef,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8fcd8d7138d27f34f88b331e064fa8ef,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8fcd8d7138d27f34f88b331e064fa8ef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8fcd8d7138d27f34f88b331e064fa8ef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8fcd8d7138d27f34f88b331e064fa8ef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8fcd8d7138d27f34f88b331e064fa8ef,
+        type: 3}
+      propertyPath: m_Name
+      value: Slime Bleu
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8fcd8d7138d27f34f88b331e064fa8ef,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8fcd8d7138d27f34f88b331e064fa8ef, type: 3}
+--- !u!4 &5959510813437087977 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8fcd8d7138d27f34f88b331e064fa8ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 6142583336523609858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6485112193073547859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8fcd8d7138d27f34f88b331e064fa8ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 6142583336523609858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8331719854287551726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -772,6 +868,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1293029876712600392, guid: 2553cec8fdb3eb643bbe9f2ec880c472,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 5959510813437087977}
+    - targetCorrespondingSourceObject: {fileID: 1293029876712600392, guid: 2553cec8fdb3eb643bbe9f2ec880c472,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 4372412181069911566}
     - targetCorrespondingSourceObject: {fileID: 1293029876712600392, guid: 2553cec8fdb3eb643bbe9f2ec880c472,
         type: 3}
@@ -820,3 +920,5 @@ MonoBehaviour:
   m_AttackZone: {fileID: 514020096270458281}
   m_AnimatorWeapon: {fileID: 5757197418363900841}
   NameTag: {fileID: 1850742826907967453}
+  m_SkinBlue: {fileID: 6485112193073547859}
+  m_SkinRed: {fileID: 6368809783183181519}

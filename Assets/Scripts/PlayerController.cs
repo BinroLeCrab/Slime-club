@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI NameTag;
 
+    [SerializeField] private GameObject m_SkinBlue;
+    [SerializeField] private GameObject m_SkinRed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,10 +27,11 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    public void initPlayer(float pv, string name)
+    public void initPlayer(float pv, string name, string skin)
     {
         setPv(pv);
         setName(name);
+        setSkin(skin);
     }
 
     private void setPv (float pv)
@@ -53,6 +57,20 @@ public class PlayerController : MonoBehaviour
     public string getName()
     {
         return m_PlayerName;
+    }
+
+    private void setSkin(string skin)
+    {
+        if (skin == "Blue")
+        {
+            m_SkinBlue.SetActive(true);
+            m_SkinRed.SetActive(false);
+        }
+        else if (skin == "Red")
+        {
+            m_SkinBlue.SetActive(false);
+            m_SkinRed.SetActive(true);
+        }
     }
 
     public void TakeDamage(float damage)

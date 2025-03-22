@@ -50,12 +50,12 @@ public class PlayerManager : MonoBehaviour
         if (FirstPlayer == null)
         {
             FirstPlayer = playerInput.GetComponent<PlayerController>();
-            FirstPlayer.initPlayer(m_PvOrigin, "J1");
+            FirstPlayer.initPlayer(m_PvOrigin, "J1", "Red");
         }
         else if (SecondPlayer == null)
         {
             SecondPlayer = playerInput.GetComponent<PlayerController>();
-            SecondPlayer.initPlayer(m_PvOrigin, "J2");
+            SecondPlayer.initPlayer(m_PvOrigin, "J2", "Blue");
         }
         else
         {
