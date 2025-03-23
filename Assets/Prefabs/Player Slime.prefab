@@ -701,7 +701,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 31c78dcb8078a8e4d8c7bf29b0101423,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -791,6 +791,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5757197418363900841}
+    - targetCorrespondingSourceObject: {fileID: 3094722721087799430, guid: 112d2f6daf75948408465c5fe062e85a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6022953132847038028}
   m_SourcePrefab: {fileID: 100100000, guid: 112d2f6daf75948408465c5fe062e85a, type: 3}
 --- !u!4 &4619596778445884003 stripped
 Transform:
@@ -825,6 +829,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6022953132847038028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9220560752087501366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa20bbdd8381bfd4eb36571a4b15f8ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damage: 10
 --- !u!1001 &6142583336523609858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -883,6 +900,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3126558358234643354, guid: 8fcd8d7138d27f34f88b331e064fa8ef,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5994e7148b4eb0743b59027de90fe751, type: 2}
     - target: {fileID: 919132149155446097, guid: 8fcd8d7138d27f34f88b331e064fa8ef,
         type: 3}
       propertyPath: m_Name
@@ -1101,6 +1123,7 @@ MonoBehaviour:
   m_Pv: 0
   m_PlayerName: 
   m_AttackZone: {fileID: 514020096270458281}
+  m_Weappon: {fileID: 6022953132847038028}
   m_AnimatorWeapon: {fileID: 5757197418363900841}
   m_AnimatorDamage: {fileID: 3868211760549825383}
   NameTag: {fileID: 1850742826907967453}

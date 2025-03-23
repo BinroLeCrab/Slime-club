@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float m_Pv;
     [SerializeField] private string m_PlayerName;
     [SerializeField] private TriggerAttackZone m_AttackZone;
+    [SerializeField] private WeapponController m_Weappon;
     [SerializeField] Animator m_AnimatorWeapon;
     [SerializeField] Animator m_AnimatorDamage;
 
@@ -96,7 +97,7 @@ public class PlayerController : MonoBehaviour
             if (m_AttackZone.getCurrentPlayer().getPv() <= 0) { 
                 return; 
             }
-            m_AttackZone.getCurrentPlayer().TakeDamage(10);
+            m_AttackZone.getCurrentPlayer().TakeDamage(m_Weappon.getDamage());
         }
     }
 }
