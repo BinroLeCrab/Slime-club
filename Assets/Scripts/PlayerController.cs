@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Animator m_AnimatorWeapon;
     [SerializeField] Animator m_AnimatorDamage;
 
-    [SerializeField] private TextMeshProUGUI NameTag;
+    [SerializeField] private TextMeshProUGUI NameTagRed;
+    [SerializeField] private TextMeshProUGUI NameTagBlue;
     [SerializeField] private TextMeshProUGUI DamageTag;
 
     [SerializeField] private GameObject m_SkinBlue;
@@ -51,9 +52,14 @@ public class PlayerController : MonoBehaviour
     {
         m_PlayerName = name;
 
-        if (NameTag != null)
+        if (NameTagRed != null)
         {
-            NameTag.text = m_PlayerName;
+            NameTagRed.text = m_PlayerName;
+        }
+
+        if (NameTagBlue != null)
+        {
+            NameTagBlue.text = m_PlayerName;
         }
     }
 
@@ -67,12 +73,16 @@ public class PlayerController : MonoBehaviour
         if (skin == "Blue")
         {
             m_SkinBlue.SetActive(true);
+            NameTagBlue.gameObject.SetActive(true);
             m_SkinRed.SetActive(false);
+            NameTagRed.gameObject.SetActive(false);
         }
         else if (skin == "Red")
         {
             m_SkinBlue.SetActive(false);
+            NameTagBlue.gameObject.SetActive(false);
             m_SkinRed.SetActive(true);
+            NameTagRed.gameObject.SetActive(true);
         }
     }
 
