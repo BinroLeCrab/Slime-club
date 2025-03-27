@@ -47,15 +47,18 @@ public class PlayerManager : MonoBehaviour
     {
         Debug.Log("Player Joined");
 
+        string deviceType = playerInput.currentControlScheme;
+        Debug.Log($"Joueur rejoint avec : {deviceType}");
+
         if (FirstPlayer == null)
         {
             FirstPlayer = playerInput.GetComponent<PlayerController>();
-            FirstPlayer.initPlayer(m_PvOrigin, "J1", "Red");
+            FirstPlayer.initPlayer(m_PvOrigin, "J1", "Red", deviceType);
         }
         else if (SecondPlayer == null)
         {
             SecondPlayer = playerInput.GetComponent<PlayerController>();
-            SecondPlayer.initPlayer(m_PvOrigin, "J2", "Blue");
+            SecondPlayer.initPlayer(m_PvOrigin, "J2", "Blue", deviceType);
         }
         else
         {

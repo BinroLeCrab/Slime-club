@@ -23,6 +23,11 @@ public class PvManager : MonoBehaviour
         {
             Debug.Log("Joueur non trouvé");
         }
+
+        if (GameOverScreen != null)
+        {
+            GameOverScreen.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -74,16 +79,6 @@ public class PvManager : MonoBehaviour
             // Réactive la souris
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-        }
-        else
-        {
-            Debug.Log("PV du joueur :" + PlayerManager.Instance.FirstPlayer.getPv());
-            GameOverScreen.SetActive(false);
-            Time.timeScale = 1;
-
-            // Cache la souris
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
         }
     }
 }
