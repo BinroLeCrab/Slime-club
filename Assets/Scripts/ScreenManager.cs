@@ -41,6 +41,13 @@ public class ScreenManager : MonoBehaviour
     {
         if (WaitingScreen == null | PvScreen == null | m_WaitingScreenJ1 == null | m_WaitingScreenJ2 == null) { return; }
 
+        if (WaitingScreen.activeSelf)
+        {
+            // Réactive la souris
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
         if (PlayerManager.Instance.FirstPlayer != null)
         {
             m_WaitingScreenJ1.m_WaitingText.SetActive(false);
