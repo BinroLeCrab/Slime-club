@@ -8,6 +8,7 @@ public class PvManager : MonoBehaviour
 {
     [SerializeField] private GameObject GameOverScreen;
     [SerializeField] private PvController PvBarJ1;
+    [SerializeField] private PvController PvBarJ2;
     [SerializeField] private TextMeshProUGUI LooserText;
     [SerializeField] private TextMeshProUGUI FirstPlayerPvText;
     [SerializeField] private TextMeshProUGUI SecondPlayerPvText;
@@ -53,9 +54,9 @@ public class PvManager : MonoBehaviour
             PvBarJ1.DisplayPV(PlayerManager.Instance.FirstPlayer.getPv(), PlayerManager.Instance.FirstPlayer.m_PvOrigin);
         }
 
-        if (PlayerManager.Instance.SecondPlayer != null && SecondPlayerPvText != null)
+        if (PlayerManager.Instance.SecondPlayer != null && PvBarJ2 != null)
         {
-            SecondPlayerPvText.text = "J2: " + PlayerManager.Instance.SecondPlayer.getPv() + " pv";
+            PvBarJ2.DisplayPV(PlayerManager.Instance.SecondPlayer.getPv(), PlayerManager.Instance.SecondPlayer.m_PvOrigin);
         }
     }
 
