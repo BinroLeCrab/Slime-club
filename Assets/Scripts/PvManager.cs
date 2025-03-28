@@ -7,6 +7,7 @@ using TMPro;
 public class PvManager : MonoBehaviour
 {
     [SerializeField] private GameObject GameOverScreen;
+    [SerializeField] private PvController PvBarJ1;
     [SerializeField] private TextMeshProUGUI LooserText;
     [SerializeField] private TextMeshProUGUI FirstPlayerPvText;
     [SerializeField] private TextMeshProUGUI SecondPlayerPvText;
@@ -47,9 +48,9 @@ public class PvManager : MonoBehaviour
 
     private void DisplayPv()
     {
-        if (PlayerManager.Instance.FirstPlayer != null && FirstPlayerPvText != null)
+        if (PlayerManager.Instance.FirstPlayer != null && PvBarJ1 != null)
         {
-            FirstPlayerPvText.text = "J1: " + PlayerManager.Instance.FirstPlayer.getPv() + " pv";
+            PvBarJ1.DisplayPV(PlayerManager.Instance.FirstPlayer.getPv(), PlayerManager.Instance.FirstPlayer.m_PvOrigin);
         }
 
         if (PlayerManager.Instance.SecondPlayer != null && SecondPlayerPvText != null)

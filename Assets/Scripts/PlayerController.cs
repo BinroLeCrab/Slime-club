@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject m_SkinRed;
 
     private string m_Device;
+    public float m_PvOrigin;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
     public void initPlayer(float pv, string name, string skin, string device)
     {
+        m_PvOrigin = pv;
         setPv(pv);
         setName(name);
         setSkin(skin);
