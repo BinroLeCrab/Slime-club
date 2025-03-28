@@ -34,8 +34,13 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    public void initPlayer(float pv, string name, string skin, string device)
+    public void initPlayer(float pv, string name, string skin, string device, Vector3 spawnPosition)
     {
+
+        this.transform.position = spawnPosition;
+
+        Debug.Log("Spawn position : " + spawnPosition + "| Position actuelle : " + this.transform.position);
+
         m_PvOrigin = pv;
         setPv(pv);
         setName(name);

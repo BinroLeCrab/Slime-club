@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private float m_PvOrigin;
+    [SerializeField] private Transform m_FirstPlayerPosition;
+    [SerializeField] private Transform m_SecondPlayerPosition;
 
     public static PlayerManager Instance { get; private set; }
     public PlayerController FirstPlayer { get; private set; }
@@ -53,12 +55,12 @@ public class PlayerManager : MonoBehaviour
         if (FirstPlayer == null)
         {
             FirstPlayer = playerInput.GetComponent<PlayerController>();
-            FirstPlayer.initPlayer(m_PvOrigin, "J1", "Red", deviceType);
+            FirstPlayer.initPlayer(m_PvOrigin, "J1", "Red", deviceType, m_FirstPlayerPosition.position);
         }
         else if (SecondPlayer == null)
         {
             SecondPlayer = playerInput.GetComponent<PlayerController>();
-            SecondPlayer.initPlayer(m_PvOrigin, "J2", "Blue", deviceType);
+            SecondPlayer.initPlayer(m_PvOrigin, "J2", "Blue", deviceType, m_SecondPlayerPosition.position);
         }
         else
         {
