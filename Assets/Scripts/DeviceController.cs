@@ -13,7 +13,7 @@ public class DeviceController : MonoBehaviour
 
     void Start()
     {
-        if (m_PlayerInput.user.pairedDevices.Count > 1)
+        if (m_PlayerInput.user.pairedDevices.Count > 1 && m_PlayerInput.currentControlScheme == "Gamepad")
         {
             m_PlayerInput.user.UnpairDevice(m_PlayerInput.user.pairedDevices[1]);
         }
