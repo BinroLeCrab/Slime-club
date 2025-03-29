@@ -1243,6 +1243,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2308150895773640262}
+    - targetCorrespondingSourceObject: {fileID: 1925873226565265906, guid: 2553cec8fdb3eb643bbe9f2ec880c472,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5287987604084330536}
   m_SourcePrefab: {fileID: 100100000, guid: 2553cec8fdb3eb643bbe9f2ec880c472, type: 3}
 --- !u!4 &7084712803420540838 stripped
 Transform:
@@ -1279,3 +1283,16 @@ MonoBehaviour:
   DamageTag: {fileID: 3134896280393901371}
   m_SkinBlue: {fileID: 6485112193073547859}
   m_SkinRed: {fileID: 6368809783183181519}
+  m_PvOrigin: 0
+--- !u!114 &-5287987604084330536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7573405780477170972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 495be37baba686e4795ed75ddc7da12e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
