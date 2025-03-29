@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,10 +23,24 @@ public class PlayerController : MonoBehaviour
     private string m_Device;
     public float m_PvOrigin;
 
+    [Header("Dash Settings")]
+    [SerializeField] private float dashSpeed = 10f;
+    [SerializeField] private float dashDuration = 0.2f;
+    [SerializeField] private float dashCooldown = 1f;
+
+    private bool canDash = true;
+
+    CharacterController m_CharacterController;
+
+    private void Awake()
+    {
+        m_CharacterController = GetComponent<CharacterController>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -36,8 +51,10 @@ public class PlayerController : MonoBehaviour
 
     public void initPlayer(float pv, string name, string skin, string device, Vector3 spawnPosition)
     {
+        
+        transform.position = spawnPosition;
 
-        this.transform.position = spawnPosition;
+
 
         Debug.Log("Spawn position : " + spawnPosition + "| Position actuelle : " + this.transform.position);
 
@@ -46,6 +63,8 @@ public class PlayerController : MonoBehaviour
         setName(name);
         setSkin(skin);
         setDevice(device);
+
+        
     }
 
     private void setPv (float pv)
@@ -129,5 +148,48 @@ public class PlayerController : MonoBehaviour
             }
             m_AttackZone.getCurrentPlayer().TakeDamage(m_Weappon.getDamage());
         }
+    }
+
+    public bool isPlayerOne()
+    {
+        if (m_PlayerName == "J1")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void OnDash()
+    {
+        if (canDash && m_CharacterController.velocity != Vector3.zero)
+        {
+            StartCoroutine(Dash());
+        }
+    }
+
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        
+        Vector3 dashDirection = m_CharacterController.velocity.normalized;
+
+        if (dashDirection == Vector3.zero)
+        {
+            dashDirection = transform.forward; 
+        }
+
+        float startTime = Time.time;
+
+        while (Time.time < startTime + dashDuration)
+        {
+            m_CharacterController.Move(dashDirection * dashSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
     }
 }
