@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -131,15 +132,27 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Spawn position : " + m_SpawnPosition + "| Position actuelle : " + this.transform.position);
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, Vector3 attackPosition, float knockbackForce, float knockbackTime)
     {
         m_Pv -= damage;
         if (DamageTag != null)
         {
             DamageTag.text = "-" + damage.ToString();
         }
-        //m_AnimatorDamage.SetTrigger("TakeDamage");
         m_AnimatorDamage.Play("Damage", 0, 0f);
+        StartCoroutine(ApplyKnockback(attackPosition, knockbackForce, knockbackTime));
+    }
+
+    public IEnumerator ApplyKnockback(Vector3 attackPosition, float knockbackForce, float knockbackTime)
+    {
+        Vector3 knockbackDirection = (transform.position - attackPosition).normalized;
+        float startTime = Time.time;
+
+        while (Time.time < startTime + knockbackTime)
+        {
+            m_CharacterController.Move(knockbackDirection * knockbackForce * Time.deltaTime);
+            yield return null;
+        }
     }
 
     public void OnAttack()
@@ -152,7 +165,7 @@ public class PlayerController : MonoBehaviour
             if (m_AttackZone.getCurrentPlayer().getPv() <= 0) { 
                 return; 
             }
-            m_AttackZone.getCurrentPlayer().TakeDamage(m_Weappon.getDamage());
+            m_AttackZone.getCurrentPlayer().TakeDamage(m_Weappon.getDamage(), transform.position, m_Weappon.getKnockbackForce(), m_Weappon.getKnockbackTime());
         }
     }
 

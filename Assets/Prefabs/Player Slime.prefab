@@ -1040,6 +1040,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Damage: 10
+  m_KnockbackForce: 10
+  m_KnockbackTime: 0.2
 --- !u!1001 &6142583336523609858
 PrefabInstance:
   m_ObjectHideFlags: 0
