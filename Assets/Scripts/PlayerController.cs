@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     private string m_Device;
     public float m_PvOrigin;
+    private Vector3 m_SpawnPosition;
 
     [Header("Dash Settings")]
     [SerializeField] private float dashSpeed = 10f;
@@ -51,12 +52,8 @@ public class PlayerController : MonoBehaviour
 
     public void initPlayer(float pv, string name, string skin, string device, Vector3 spawnPosition)
     {
-        
-        transform.position = spawnPosition;
 
-
-
-        Debug.Log("Spawn position : " + spawnPosition + "| Position actuelle : " + this.transform.position);
+        m_SpawnPosition = spawnPosition;
 
         m_PvOrigin = pv;
         setPv(pv);
@@ -123,6 +120,15 @@ public class PlayerController : MonoBehaviour
             m_SkinRed.SetActive(true);
             NameTagRed.gameObject.SetActive(true);
         }
+    }
+
+    public void setSpawn()
+    {
+        m_CharacterController.enabled = false;
+        transform.position = m_SpawnPosition;
+        m_CharacterController.enabled = true;
+
+        Debug.Log("Spawn position : " + m_SpawnPosition + "| Position actuelle : " + this.transform.position);
     }
 
     public void TakeDamage(float damage)

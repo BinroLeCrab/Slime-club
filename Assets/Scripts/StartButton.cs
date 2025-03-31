@@ -18,6 +18,9 @@ public class StartButton : MonoBehaviour
             // Cache la souris
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
+            PlayerManager.Instance.FirstPlayer.setSpawn();
+            PlayerManager.Instance.SecondPlayer.setSpawn();
         }
     }
 }
