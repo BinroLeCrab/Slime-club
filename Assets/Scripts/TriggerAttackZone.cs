@@ -12,7 +12,6 @@ public class TriggerAttackZone : MonoBehaviour
     private const string PLAYER_TAG = "Player";
     private GameObject currentOject;
     private PlayerController currentPlayer;
-    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,7 +21,6 @@ public class TriggerAttackZone : MonoBehaviour
             currentPlayer = currentOject.GetComponent<PlayerController>();
         }
     }
-
 
     private void OnTriggerExit(Collider other)
     {
@@ -36,5 +34,10 @@ public class TriggerAttackZone : MonoBehaviour
     public PlayerController getCurrentPlayer()
     {
         return currentPlayer;
+    }
+
+    public void unsetCurrentPlayer()
+    {
+        currentPlayer = null;
     }
 }

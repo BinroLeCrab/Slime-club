@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour
 
         transform.position = m_SpawnPosition;
         setPv(m_PvOrigin);
+        m_AttackZone.unsetCurrentPlayer();
 
         if (asWon)
         {
