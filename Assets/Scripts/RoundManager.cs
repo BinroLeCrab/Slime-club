@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PvManager : MonoBehaviour
+public class RoundManager : MonoBehaviour
 {
     [SerializeField] private GameObject GameOverScreen;
     [SerializeField] private PvController PvBarJ1;
@@ -12,19 +12,15 @@ public class PvManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI LooserText;
     [SerializeField] private TextMeshProUGUI FirstPlayerPvText;
     [SerializeField] private TextMeshProUGUI SecondPlayerPvText;
+    [SerializeField] private int m_MaxRoundNumber;
+
+    [SerializeField] private int m_CurrentRound;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        if (PlayerManager.Instance.FirstPlayer != null)
-        {
-            Debug.Log("PV du joueur 1 :" + PlayerManager.Instance.FirstPlayer.getPv());
-        }
-        else
-        {
-            Debug.Log("Joueur non trouvé");
-        }
+        m_CurrentRound = 1;
 
         if (GameOverScreen != null)
         {
@@ -40,7 +36,7 @@ public class PvManager : MonoBehaviour
         if (PlayerManager.Instance.FirstPlayer != null && PlayerManager.Instance.SecondPlayer != null)
         {
             DisplayPv();
-            IfGameOver();
+            IfPlayerKo();
         } else
         {
             Debug.Log("Ajoutez un deuxième joueur.");
@@ -60,27 +56,56 @@ public class PvManager : MonoBehaviour
         }
     }
 
-    private void IfGameOver()
+    private void IfPlayerKo()
     {
+        
         if (PlayerManager.Instance.FirstPlayer.getPv() <= 0 || PlayerManager.Instance.SecondPlayer.getPv() <= 0)
         {
-            if (PlayerManager.Instance.FirstPlayer.getPv() <= 0)
+            if (m_CurrentRound >= m_MaxRoundNumber)
+            {
+                gameOver();
+            } 
+            else if (PlayerManager.Instance.FirstPlayer.getPv() <= 0)
             {
                 Debug.Log("Joueur 1 KO");
                 LooserText.text = "Joueur 1 KO";
+                PlayerManager.Instance.FirstPlayer.restart(false);
+                PlayerManager.Instance.SecondPlayer.restart(true);
             }
             else
             {
                 Debug.Log("Joueur 2 KO");
                 LooserText.text = "Joueur 2 KO";
+                PlayerManager.Instance.FirstPlayer.restart(true);
+                PlayerManager.Instance.SecondPlayer.restart(false);
             }
 
-            GameOverScreen.SetActive(true);
-            Time.timeScale = 0;
+            if (m_CurrentRound < m_MaxRoundNumber)
+            { 
+                m_CurrentRound++;
+            }
 
-            // Réactive la souris
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
         }
+    }
+
+    private void gameOver()
+    {
+        if (PlayerManager.Instance.FirstPlayer.getPv() <= 0)
+        {
+            Debug.Log("Joueur 1 KO");
+            LooserText.text = "Joueur 1 KO";
+        }
+        else
+        {
+            Debug.Log("Joueur 2 KO");
+            LooserText.text = "Joueur 2 KO";
+        }
+
+        GameOverScreen.SetActive(true);
+        Time.timeScale = 0;
+
+        // Réactive la souris
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }

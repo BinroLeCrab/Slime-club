@@ -1659,7 +1659,7 @@ GameObject:
   - component: {fileID: 1768241791}
   - component: {fileID: 1768241790}
   m_Layer: 0
-  m_Name: PV Manager
+  m_Name: Round Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1683,6 +1683,7 @@ MonoBehaviour:
   LooserText: {fileID: 544825470}
   FirstPlayerPvText: {fileID: 0}
   SecondPlayerPvText: {fileID: 0}
+  m_MaxRoundNumber: 3
 --- !u!4 &1768241791
 Transform:
   m_ObjectHideFlags: 0

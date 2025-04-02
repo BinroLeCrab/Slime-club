@@ -21,18 +21,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject m_SkinBlue;
     [SerializeField] private GameObject m_SkinRed;
 
-    private string m_Device;
-    public float m_PvOrigin;
-    private Vector3 m_SpawnPosition;
-
     [Header("Dash Settings")]
     [SerializeField] private float dashSpeed = 10f;
     [SerializeField] private float dashDuration = 0.2f;
     [SerializeField] private float dashCooldown = 1f;
 
+    private string m_Device;
+    public float m_PvOrigin;
+    private Vector3 m_SpawnPosition;
+    private int m_PlayerScore = 0;
     private bool canDash = true;
 
-    CharacterController m_CharacterController;
+    private CharacterController m_CharacterController;
 
     private void Awake()
     {
@@ -53,7 +53,6 @@ public class PlayerController : MonoBehaviour
 
     public void initPlayer(float pv, string name, string skin, string device, Vector3 spawnPosition)
     {
-
         m_SpawnPosition = spawnPosition;
 
         m_PvOrigin = pv;
@@ -61,8 +60,22 @@ public class PlayerController : MonoBehaviour
         setName(name);
         setSkin(skin);
         setDevice(device);
-
         
+    }
+
+    public void restart (bool asWon)
+    {
+        m_CharacterController.enabled = false;
+
+        transform.position = m_SpawnPosition;
+        setPv(m_PvOrigin);
+
+        if (asWon)
+        {
+            m_PlayerScore++;
+        }
+
+        m_CharacterController.enabled = true;
     }
 
     private void setPv (float pv)
