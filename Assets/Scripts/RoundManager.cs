@@ -48,11 +48,13 @@ public class RoundManager : MonoBehaviour
         if (PlayerManager.Instance.FirstPlayer != null && PvBarJ1 != null)
         {
             PvBarJ1.DisplayPV(PlayerManager.Instance.FirstPlayer.getPv(), PlayerManager.Instance.FirstPlayer.m_PvOrigin);
+            PvBarJ1.UpdateScore(PlayerManager.Instance.FirstPlayer.getScore());
         }
 
         if (PlayerManager.Instance.SecondPlayer != null && PvBarJ2 != null)
         {
             PvBarJ2.DisplayPV(PlayerManager.Instance.SecondPlayer.getPv(), PlayerManager.Instance.SecondPlayer.m_PvOrigin);
+            PvBarJ2.UpdateScore(PlayerManager.Instance.SecondPlayer.getScore());
         }
     }
 
@@ -90,6 +92,7 @@ public class RoundManager : MonoBehaviour
 
     private void gameOver()
     {
+
         if (PlayerManager.Instance.FirstPlayer.getPv() <= 0)
         {
             Debug.Log("Joueur 1 KO");

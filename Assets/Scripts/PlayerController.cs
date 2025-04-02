@@ -99,6 +99,11 @@ public class PlayerController : MonoBehaviour
         return m_Device;
     }
 
+    public int getScore()
+    {
+        return m_PlayerScore;
+    }
+
     private void setName(string name)
     {
         m_PlayerName = name;
