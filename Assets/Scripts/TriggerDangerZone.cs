@@ -18,6 +18,7 @@ public class TriggerDangerZone : MonoBehaviour
         {
             Debug.Log("Player entre dans la zone dangereuse");
             currentOject.GetComponent<PlayerController>().TakeDamage(m_Damage, transform.position, 0, 0);
+            currentOject.GetComponent<PlayerController>().setSpawn();
         }
     }
 

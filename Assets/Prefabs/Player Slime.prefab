@@ -1160,7 +1160,7 @@ PrefabInstance:
     - target: {fileID: 1293029876712600392, guid: 2553cec8fdb3eb643bbe9f2ec880c472,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.6461086
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 1293029876712600392, guid: 2553cec8fdb3eb643bbe9f2ec880c472,
         type: 3}
@@ -1170,7 +1170,7 @@ PrefabInstance:
     - target: {fileID: 1293029876712600392, guid: 2553cec8fdb3eb643bbe9f2ec880c472,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.6172323
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1293029876712600392, guid: 2553cec8fdb3eb643bbe9f2ec880c472,
         type: 3}
@@ -1374,10 +1374,10 @@ MonoBehaviour:
   DamageTag: {fileID: 3134896280393901371}
   m_SkinBlue: {fileID: 6485112193073547859}
   m_SkinRed: {fileID: 6368809783183181519}
-  m_PvOrigin: 0
   dashSpeed: 20
   dashDuration: 0.2
   dashCooldown: 0.5
+  m_PvOrigin: 0
 --- !u!114 &-5287987604084330536
 MonoBehaviour:
   m_ObjectHideFlags: 0
