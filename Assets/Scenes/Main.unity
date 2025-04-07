@@ -788,6 +788,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 999020048}
     m_Modifications:
+    - target: {fileID: 306324481745455909, guid: a1608828dcc56a148824a0f9e39fa7f9,
+        type: 3}
+      propertyPath: PvScreen
+      value: 
+      objectReference: {fileID: 1475852629}
     - target: {fileID: 4292031066707098936, guid: a1608828dcc56a148824a0f9e39fa7f9,
         type: 3}
       propertyPath: PvScreen
