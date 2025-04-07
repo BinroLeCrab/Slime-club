@@ -593,6 +593,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eaa3678ba7b8064a9bb31243623fadf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &960720921 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7600379752543716523, guid: 5df85f7738e4c264da0e21e5acb600b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3334445123068914804}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &999020044
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,8 +988,7 @@ MonoBehaviour:
   PvBarJ1: {fileID: 877564720}
   PvBarJ2: {fileID: 442572455}
   LooserText: {fileID: 544825470}
-  FirstPlayerPvText: {fileID: 0}
-  SecondPlayerPvText: {fileID: 0}
+  RoundText: {fileID: 960720921}
   m_MaxRoundNumber: 3
   m_CurrentRound: 0
 --- !u!4 &1768241791

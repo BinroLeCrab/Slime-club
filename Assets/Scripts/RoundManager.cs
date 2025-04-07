@@ -10,8 +10,7 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private PvController PvBarJ1;
     [SerializeField] private PvController PvBarJ2;
     [SerializeField] private TextMeshProUGUI LooserText;
-    [SerializeField] private TextMeshProUGUI FirstPlayerPvText;
-    [SerializeField] private TextMeshProUGUI SecondPlayerPvText;
+    [SerializeField] private TextMeshProUGUI RoundText;
     [SerializeField] private int m_MaxRoundNumber;
 
     [SerializeField] private int m_CurrentRound;
@@ -37,10 +36,16 @@ public class RoundManager : MonoBehaviour
         {
             DisplayPv();
             IfPlayerKo();
+
+            if (RoundText != null)
+            {
+                RoundText.text = "Manche " + m_CurrentRound;
+            }
         } else
         {
             Debug.Log("Ajoutez un deuxième joueur.");
         }
+
     }
 
     private void DisplayPv()
