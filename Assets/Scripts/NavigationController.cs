@@ -40,17 +40,12 @@ public class NavigationController : MonoBehaviour
         
         Debug.Log("Retour au menu !");
         SceneManager.LoadScene(0); 
-        //Time.timeScale = 0;
-
-        //if (CharacterManager.CharacterInstance != null)
-        //{
-        //    Destroy(CharacterManager.CharacterInstance.gameObject);
-        //}
 
     }
 
     public void ExitGame()
     {
+        Debug.Log("Quitte le jeu !");
         Application.Quit();
     }
 }
