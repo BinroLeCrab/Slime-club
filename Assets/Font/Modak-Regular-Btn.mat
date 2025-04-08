@@ -30,7 +30,7 @@ Material:
     - _GlowOffset: 1
     - _GlowOuter: 1
     - _GlowPower: 1
-    - _OutlineWidth: 0.483
+    - _OutlineWidth: 0.3
     - _ScaleRatioA: 0.8333333
     - _ScaleRatioB: 0.33854166
     m_Colors:

@@ -6,7 +6,8 @@ using TMPro;
 
 public class RoundManager : MonoBehaviour
 {
-    [SerializeField] private GameObject GameOverScreen;
+    [SerializeField] private GameObject EndScreen;
+    [SerializeField] private GameObject PvScreen;
     [SerializeField] private PvController PvBarJ1;
     [SerializeField] private PvController PvBarJ2;
     [SerializeField] private TextMeshProUGUI LooserText;
@@ -21,9 +22,9 @@ public class RoundManager : MonoBehaviour
     {
         m_CurrentRound = 1;
 
-        if (GameOverScreen != null)
+        if (EndScreen != null)
         {
-            GameOverScreen.SetActive(false);
+            EndScreen.SetActive(false);
         }
     }
 
@@ -68,26 +69,23 @@ public class RoundManager : MonoBehaviour
         
         if (PlayerManager.Instance.FirstPlayer.getPv() <= 0 || PlayerManager.Instance.SecondPlayer.getPv() <= 0)
         {
-            if (m_CurrentRound >= m_MaxRoundNumber)
+            
+            if (PlayerManager.Instance.FirstPlayer.getPv() <= 0)
             {
-                gameOver();
-            } 
-            else if (PlayerManager.Instance.FirstPlayer.getPv() <= 0)
-            {
-                Debug.Log("Joueur 1 KO");
-                LooserText.text = "Joueur 1 KO";
                 PlayerManager.Instance.FirstPlayer.restart(false);
                 PlayerManager.Instance.SecondPlayer.restart(true);
             }
             else
             {
-                Debug.Log("Joueur 2 KO");
-                LooserText.text = "Joueur 2 KO";
                 PlayerManager.Instance.FirstPlayer.restart(true);
                 PlayerManager.Instance.SecondPlayer.restart(false);
             }
 
-            if (m_CurrentRound < m_MaxRoundNumber)
+            if (m_CurrentRound >= m_MaxRoundNumber)
+            {
+                gameEnd();
+            }
+            else if (m_CurrentRound < m_MaxRoundNumber)
             { 
                 m_CurrentRound++;
             }
@@ -95,21 +93,12 @@ public class RoundManager : MonoBehaviour
         }
     }
 
-    private void gameOver()
+    private void gameEnd()
     {
+        if (EndScreen == null || PvScreen == null) return;
 
-        if (PlayerManager.Instance.FirstPlayer.getPv() <= 0)
-        {
-            Debug.Log("Joueur 1 KO");
-            LooserText.text = "Joueur 1 KO";
-        }
-        else
-        {
-            Debug.Log("Joueur 2 KO");
-            LooserText.text = "Joueur 2 KO";
-        }
-
-        GameOverScreen.SetActive(true);
+        EndScreen.SetActive(true);
+        PvScreen.SetActive(false);
         Time.timeScale = 0;
 
         // Réactive la souris
