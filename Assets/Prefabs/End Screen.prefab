@@ -1681,11 +1681,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 7970306836881377383}
+      objectReference: {fileID: 0}
     - target: {fileID: 1345075558729096400, guid: b55c7de6b15cbbd4aa996aba16349d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BackToMenu
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1345075558729096400, guid: b55c7de6b15cbbd4aa996aba16349d18,
         type: 3}
