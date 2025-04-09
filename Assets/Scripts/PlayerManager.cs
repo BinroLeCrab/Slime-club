@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private float m_PvOrigin;
     [SerializeField] private Transform m_FirstPlayerPosition;
     [SerializeField] private Transform m_SecondPlayerPosition;
+    [SerializeField] private AudioSource m_Sound;
 
     public static PlayerManager Instance { get; private set; }
     public PlayerController FirstPlayer { get; private set; }
@@ -56,11 +57,13 @@ public class PlayerManager : MonoBehaviour
         {
             FirstPlayer = playerInput.GetComponent<PlayerController>();
             FirstPlayer.initPlayer(m_PvOrigin, "J1", "Red", deviceType, m_FirstPlayerPosition.position);
+            if (m_Sound != null) m_Sound.Play();
         }
         else if (SecondPlayer == null)
         {
             SecondPlayer = playerInput.GetComponent<PlayerController>();
             SecondPlayer.initPlayer(m_PvOrigin, "J2", "Blue", deviceType, m_SecondPlayerPosition.position);
+            if (m_Sound != null) m_Sound.Play();
         }
         else
         {

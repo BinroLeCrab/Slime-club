@@ -12,7 +12,9 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private PvController PvBarJ2;
     [SerializeField] private TextMeshProUGUI LooserText;
     [SerializeField] private TextMeshProUGUI RoundText;
+    [SerializeField] private AudioSource m_Sound;
     [SerializeField] private int m_MaxRoundNumber;
+
 
     [SerializeField] private int m_CurrentRound;
 
@@ -88,6 +90,7 @@ public class RoundManager : MonoBehaviour
             else if (m_CurrentRound < m_MaxRoundNumber)
             { 
                 m_CurrentRound++;
+                if (m_Sound != null) m_Sound.Play();
             }
 
         }

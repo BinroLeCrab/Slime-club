@@ -11,21 +11,26 @@ public class WeapponController : MonoBehaviour
     [SerializeField] private float m_KnockbackForce;
     [SerializeField] private float m_KnockbackTime;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("Sound")]
+    [SerializeField] private AudioClip m_AttackSound;
+    [SerializeField] private AudioClip m_AttackSoundBis;
 
     public float getDamage()
     {
         return m_Damage;
+    }
+
+    public AudioClip getSound()
+    {
+        int random = Random.Range(0, 2);
+
+        if (random == 0 )
+        {
+            return m_AttackSound;
+        } else
+        {
+            return m_AttackSoundBis;
+        }
     }
 
     public float getKnockbackForce() {

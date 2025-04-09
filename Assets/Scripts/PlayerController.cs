@@ -25,11 +25,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashDuration = 0.2f;
     [SerializeField] private float dashCooldown = 1f;
 
+    [Header("Sound")]
+    [SerializeField] private AudioSource m_AudioSource;
+    [SerializeField] private AudioClip m_DashSound;
+    [SerializeField] private AudioClip m_AttackSound;
+    [SerializeField] private AudioClip m_AttackSound2;
+    [SerializeField] private AudioClip m_AttackSound3;
+    [SerializeField] private AudioClip m_HitSound;
+    [SerializeField] private AudioClip m_HitSound2;
+    [SerializeField] private AudioClip m_HitSound3;
+    [SerializeField] private AudioClip m_TauntSound;
+
     private string m_Device;
     public float m_PvOrigin;
     private Vector3 m_SpawnPosition;
     private int m_PlayerScore = 0;
     private bool canDash = true;
+    private bool canMakeSound = false;
 
     private CharacterController m_CharacterController;
 
@@ -73,6 +85,11 @@ public class PlayerController : MonoBehaviour
         if (asWon)
         {
             m_PlayerScore++;
+
+            if (m_AudioSource != null && canMakeSound == true)
+            {
+                m_AudioSource.PlayOneShot(m_TauntSound);
+            }
         }
 
         m_CharacterController.enabled = true;
@@ -146,6 +163,12 @@ public class PlayerController : MonoBehaviour
         m_CharacterController.enabled = false;
         transform.position = m_SpawnPosition;
         m_CharacterController.enabled = true;
+        canMakeSound = true;
+
+        if (m_AudioSource != null && canMakeSound == true)
+        {
+            m_AudioSource.PlayOneShot(m_TauntSound);
+        }
 
         Debug.Log("Spawn position : " + m_SpawnPosition + "| Position actuelle : " + this.transform.position);
     }
@@ -157,6 +180,29 @@ public class PlayerController : MonoBehaviour
         {
             DamageTag.text = "-" + damage.ToString();
         }
+
+        if (m_AudioSource != null && canMakeSound == true)
+        {
+            int random = Random.Range(0, 3);
+
+            AudioClip randomClip;
+
+            if (random == 0)
+            {
+                randomClip = m_HitSound;
+            }
+            else if (random == 1)
+            {
+                randomClip = m_HitSound2;
+            }
+            else
+            {
+                randomClip = m_HitSound3;
+            }
+
+            m_AudioSource.PlayOneShot(randomClip);
+        }
+
         m_AnimatorDamage.Play("Damage", 0, 0f);
         StartCoroutine(ApplyKnockback(attackPosition, knockbackForce, knockbackTime));
     }
@@ -176,6 +222,30 @@ public class PlayerController : MonoBehaviour
     public void OnAttack()
     {
         m_AnimatorWeapon.SetTrigger("Attack");
+
+        
+        if (m_AudioSource != null && canMakeSound == true)
+        {
+            int random = Random.Range(0, 3);
+
+            AudioClip randomClip;
+
+            if (random == 0)
+            {
+                randomClip = m_AttackSound;
+            }
+            else if(random == 1)
+            {
+                randomClip = m_AttackSound2;
+            }
+            else
+            {
+                randomClip = m_AttackSound3;
+            }
+
+            m_AudioSource.PlayOneShot(m_Weappon.getSound());
+            m_AudioSource.PlayOneShot(randomClip);
+        }
 
         if (m_AttackZone.getCurrentPlayer() != null)
         {
@@ -220,9 +290,15 @@ public class PlayerController : MonoBehaviour
 
         float startTime = Time.time;
 
+        if (m_AudioSource != null && canMakeSound == true)
+        {
+            m_AudioSource.PlayOneShot(m_DashSound);
+        }
+
         while (Time.time < startTime + dashDuration)
         {
             m_CharacterController.Move(dashDirection * dashSpeed * Time.deltaTime);
+
             yield return null;
         }
 
