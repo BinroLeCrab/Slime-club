@@ -239,6 +239,17 @@
                 },
                 {
                     "name": "",
+                    "id": "13148ed3-8964-46a9-bb0c-dfc38bff9060",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e42a51de-89db-43cb-980e-e9b17bb2bf31",
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
@@ -252,6 +263,17 @@
                     "name": "",
                     "id": "7f25c08b-68a7-49ee-9fbf-9f69522857d6",
                     "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e3b5054f-397e-41d7-8f83-ec5cb5a5475f",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
