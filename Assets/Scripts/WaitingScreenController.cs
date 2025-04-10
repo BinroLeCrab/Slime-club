@@ -6,28 +6,17 @@ using UnityEngine.UI;
 
 public class WaitingScreenController : MonoBehaviour
 {
+    [Header("Child Object")]
     [SerializeField] public GameObject m_WaitingText;
     [SerializeField] public GameObject m_SpriteSlime;
-
     [SerializeField] public GameObject m_DeviceIcon;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void SetDeviceIcon(string device)
     {
-        Debug.Log("Device : " + device);
+        //Active the good device icon
 
-        //KeyboardMouse
+        //If device is a KeyboardMouse
         if (device == "KeyboardMouse")
         {
             m_DeviceIcon.transform.Find("Keyboard Initial").gameObject.SetActive(false);
