@@ -409,7 +409,7 @@ GameObject:
   - component: {fileID: 8321204964672358672}
   - component: {fileID: 9008624417109589102}
   m_Layer: 5
-  m_Name: PV bar component
+  m_Name: UI_PV bar component
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

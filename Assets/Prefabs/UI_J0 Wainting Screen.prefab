@@ -583,7 +583,7 @@ GameObject:
   - component: {fileID: 8534654333138114651}
   - component: {fileID: 6966719126996893365}
   m_Layer: 5
-  m_Name: J0 Wainting Screen
+  m_Name: UI_J0 Wainting Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
