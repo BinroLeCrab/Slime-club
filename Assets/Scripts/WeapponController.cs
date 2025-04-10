@@ -15,13 +15,14 @@ public class WeapponController : MonoBehaviour
     [SerializeField] private AudioClip m_AttackSound;
     [SerializeField] private AudioClip m_AttackSoundBis;
 
-    public float getDamage()
+    public float GetDamage()
     {
         return m_Damage;
     }
 
-    public AudioClip getSound()
+    public AudioClip GetSound()
     {
+        // Play random sound
         int random = Random.Range(0, 2);
 
         if (random == 0 )
@@ -33,11 +34,11 @@ public class WeapponController : MonoBehaviour
         }
     }
 
-    public float getKnockbackForce() {
+    public float GetKnockbackForce() {
         return m_KnockbackForce;
     }
 
-    public float getKnockbackTime() {
+    public float GetKnockbackTime() {
         return m_KnockbackTime;
     }
 }

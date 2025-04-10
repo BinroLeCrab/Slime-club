@@ -6,23 +6,23 @@ using TMPro;
 
 public class RoundManager : MonoBehaviour
 {
-    [SerializeField] private GameObject EndScreen;
-    [SerializeField] private GameObject PvScreen;
-    [SerializeField] private PvController PvBarJ1;
-    [SerializeField] private PvController PvBarJ2;
-    [SerializeField] private TextMeshProUGUI LooserText;
-    [SerializeField] private TextMeshProUGUI RoundText;
-    [SerializeField] private AudioSource m_Sound;
+    [Header("Round")]
     [SerializeField] private int m_MaxRoundNumber;
-
-
     [SerializeField] private int m_CurrentRound;
 
+    [Header("UI Objects")]
+    [SerializeField] private GameObject EndScreen;
+    [SerializeField] private GameObject PvScreen;
+    [SerializeField] private TextMeshProUGUI RoundText;
+    [SerializeField] private PvController PvBarJ1;
+    [SerializeField] private PvController PvBarJ2;
 
-    // Start is called before the first frame update
+    [Header("Audio")]
+    [SerializeField] private AudioSource m_Sound;
+
     void Start()
     {
-        m_CurrentRound = 1;
+        m_CurrentRound = 1; // Set round at 1
 
         if (EndScreen != null)
         {
@@ -30,7 +30,6 @@ public class RoundManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (PlayerManager.Instance == null) return;
@@ -42,53 +41,58 @@ public class RoundManager : MonoBehaviour
 
             if (RoundText != null)
             {
+                // Display Round number
                 RoundText.text = "Manche " + m_CurrentRound;
             }
-        } else
-        {
-            Debug.Log("Ajoutez un deuxième joueur.");
         }
 
     }
 
     private void DisplayPv()
     {
+        // Display Players PV & Score
+
         if (PlayerManager.Instance.FirstPlayer != null && PvBarJ1 != null)
         {
-            PvBarJ1.DisplayPV(PlayerManager.Instance.FirstPlayer.getPv(), PlayerManager.Instance.FirstPlayer.m_PvOrigin);
-            PvBarJ1.UpdateScore(PlayerManager.Instance.FirstPlayer.getScore());
+            PvBarJ1.DisplayPV(PlayerManager.Instance.FirstPlayer.GetPv(), PlayerManager.Instance.FirstPlayer.m_PvOrigin);
+            PvBarJ1.UpdateScore(PlayerManager.Instance.FirstPlayer.GetScore());
         }
 
         if (PlayerManager.Instance.SecondPlayer != null && PvBarJ2 != null)
         {
-            PvBarJ2.DisplayPV(PlayerManager.Instance.SecondPlayer.getPv(), PlayerManager.Instance.SecondPlayer.m_PvOrigin);
-            PvBarJ2.UpdateScore(PlayerManager.Instance.SecondPlayer.getScore());
+            PvBarJ2.DisplayPV(PlayerManager.Instance.SecondPlayer.GetPv(), PlayerManager.Instance.SecondPlayer.m_PvOrigin);
+            PvBarJ2.UpdateScore(PlayerManager.Instance.SecondPlayer.GetScore());
         }
     }
 
     private void IfPlayerKo()
     {
-        
-        if (PlayerManager.Instance.FirstPlayer.getPv() <= 0 || PlayerManager.Instance.SecondPlayer.getPv() <= 0)
+        // Check if one player is KO
+
+        if (PlayerManager.Instance.FirstPlayer.GetPv() <= 0 || PlayerManager.Instance.SecondPlayer.GetPv() <= 0)
         {
-            
-            if (PlayerManager.Instance.FirstPlayer.getPv() <= 0)
+            // Set stats for players and restart
+
+            if (PlayerManager.Instance.FirstPlayer.GetPv() <= 0)
             {
-                PlayerManager.Instance.FirstPlayer.restart(false);
-                PlayerManager.Instance.SecondPlayer.restart(true);
+                PlayerManager.Instance.FirstPlayer.Restart(false);
+                PlayerManager.Instance.SecondPlayer.Restart(true);
             }
             else
             {
-                PlayerManager.Instance.FirstPlayer.restart(true);
-                PlayerManager.Instance.SecondPlayer.restart(false);
+                PlayerManager.Instance.FirstPlayer.Restart(true);
+                PlayerManager.Instance.SecondPlayer.Restart(false);
             }
 
             if (m_CurrentRound >= m_MaxRoundNumber)
             {
-                gameEnd();
+                // Stop game if max round
+                GameEnd();
             }
+
             else if (m_CurrentRound < m_MaxRoundNumber)
             { 
+                // Increment round and play sound
                 m_CurrentRound++;
                 if (m_Sound != null) m_Sound.Play();
             }
@@ -96,15 +100,18 @@ public class RoundManager : MonoBehaviour
         }
     }
 
-    private void gameEnd()
+    private void GameEnd()
     {
         if (EndScreen == null || PvScreen == null) return;
 
+        // Manage UI
         EndScreen.SetActive(true);
         PvScreen.SetActive(false);
+
+        // Stop game
         Time.timeScale = 0;
 
-        // Réactive la souris
+        // Show Mouse
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }

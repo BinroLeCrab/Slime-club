@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class ScoreController : MonoBehaviour
 {
-    private const string SCORE_FORMAT = "Score: {0}/{1}";
-
+    [Header("UI Objects")]
     [SerializeField] private TextMeshProUGUI m_ScoreLabelJ1;
     [SerializeField] private TextMeshProUGUI m_ScoreLabelJ2;
 
@@ -14,8 +13,8 @@ public class ScoreController : MonoBehaviour
 
         if (PlayerManager.Instance.FirstPlayer != null && PlayerManager.Instance.SecondPlayer != null)
         {
-            m_ScoreLabelJ1.text = PlayerManager.Instance.FirstPlayer.getScore().ToString();
-            m_ScoreLabelJ2.text = PlayerManager.Instance.SecondPlayer.getScore().ToString();
+            m_ScoreLabelJ1.text = PlayerManager.Instance.FirstPlayer.GetScore().ToString();
+            m_ScoreLabelJ2.text = PlayerManager.Instance.SecondPlayer.GetScore().ToString();
         }
     }
 }

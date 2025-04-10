@@ -6,9 +6,10 @@ public class NavigationController : MonoBehaviour
 {
     public GlobalInput inputActions;
 
+    [Header("Params")]
     [SerializeField] private bool m_IsMain;
 
-    [Header("UI Element")]
+    [Header("UI Object")]
     [SerializeField] private GameObject UI_Info;
 
     private void Awake()
@@ -18,6 +19,7 @@ public class NavigationController : MonoBehaviour
 
     private void OnEnable()
     {
+        // Set input action for gamepad
         inputActions.Navigation.Escape.Enable();
         inputActions.Navigation.Escape.performed += OnEscape;
         inputActions.Navigation.EnterGame.Enable();
@@ -32,6 +34,7 @@ public class NavigationController : MonoBehaviour
 
     private void OnDisable()
     {
+        // Unset input action for gamepad
         inputActions.Navigation.Escape.Disable();
         inputActions.Navigation.Escape.performed -= OnEscape;
         inputActions.Navigation.EnterGame.Disable();
@@ -74,7 +77,7 @@ public class NavigationController : MonoBehaviour
         // Reactive cursor
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        Debug.Log("Retour au menu !");
+
         // Back to menu
         SceneManager.LoadScene(0); 
 
@@ -82,12 +85,13 @@ public class NavigationController : MonoBehaviour
 
     public void ExitGame()
     {
-        Debug.Log("Quitte le jeu !");
+        // Close the game
         Application.Quit();
     }
 
     public void LoadMain()
     {
+        // Load Main Scene
         SceneManager.LoadScene("Main");
     }
 
@@ -96,8 +100,7 @@ public class NavigationController : MonoBehaviour
 
         if (UI_Info == null) return;
 
-        Debug.Log("info trouvé");
-
+        // Open/close Info popup
         if (UI_Info.gameObject.activeSelf == false)
         {
             UI_Info.gameObject.SetActive(true);

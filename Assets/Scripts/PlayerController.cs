@@ -6,24 +6,30 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Player Informations")]
     [SerializeField] private float m_Pv;
     [SerializeField] private string m_PlayerName;
+    [SerializeField] private int m_PlayerScore = 0;
+
+    [Header("Attack Settings")]
     [SerializeField] private TriggerAttackZone m_AttackZone;
     [SerializeField] private WeapponController m_Weappon;
     [SerializeField] Animator m_AnimatorWeapon;
     [SerializeField] Animator m_AnimatorDamage;
 
+    [Header("Dash Settings")]
+    [SerializeField] private float dashSpeed = 10;
+    [SerializeField] private float dashDuration = 0.2f;
+    [SerializeField] private float dashCooldown = 1;
+
+    [Header("UI Objects")]
     [SerializeField] private TextMeshProUGUI NameTagRed;
     [SerializeField] private TextMeshProUGUI NameTagBlue;
     [SerializeField] private TextMeshProUGUI DamageTag;
 
+    [Header("Skin")]
     [SerializeField] private GameObject m_SkinBlue;
     [SerializeField] private GameObject m_SkinRed;
-
-    [Header("Dash Settings")]
-    [SerializeField] private float dashSpeed = 10f;
-    [SerializeField] private float dashDuration = 0.2f;
-    [SerializeField] private float dashCooldown = 1f;
 
     [Header("Sound")]
     [SerializeField] private AudioSource m_AudioSource;
@@ -39,7 +45,6 @@ public class PlayerController : MonoBehaviour
     private string m_Device;
     public float m_PvOrigin;
     private Vector3 m_SpawnPosition;
-    private int m_PlayerScore = 0;
     private bool canDash = true;
     private bool canMakeSound = false;
 
@@ -50,77 +55,28 @@ public class PlayerController : MonoBehaviour
         m_CharacterController = GetComponent<CharacterController>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void initPlayer(float pv, string name, string skin, string device, Vector3 spawnPosition)
+    public void InitPlayer(float pv, string name, string skin, string device, Vector3 spawnPosition)
     {
         m_SpawnPosition = spawnPosition;
-
         m_PvOrigin = pv;
-        setPv(pv);
-        setName(name);
-        setSkin(skin);
-        setDevice(device);
-        
+
+        SetPV(pv);
+        SetName(name);
+        SetSkin(skin);
+        SetDevice(device);
     }
 
-    public void restart (bool asWon)
-    {
-        m_CharacterController.enabled = false;
-
-        transform.position = m_SpawnPosition;
-        setPv(m_PvOrigin);
-        m_AttackZone.unsetCurrentPlayer();
-
-        if (asWon)
-        {
-            m_PlayerScore++;
-
-            if (m_AudioSource != null && canMakeSound == true)
-            {
-                m_AudioSource.PlayOneShot(m_TauntSound);
-            }
-        }
-
-        m_CharacterController.enabled = true;
-    }
-
-    private void setPv (float pv)
+    private void SetPV (float pv)
     {
         m_Pv = pv;
     }
 
-    public float getPv()
-    {
-        return m_Pv;
-    }
-
-    private void setDevice(string device)
+    private void SetDevice(string device)
     {
         m_Device = device;
     }
 
-    public string getDevice()
-    {
-        return m_Device;
-    }
-
-    public int getScore()
-    {
-        return m_PlayerScore;
-    }
-
-    private void setName(string name)
+    private void SetName(string name)
     {
         m_PlayerName = name;
 
@@ -135,13 +91,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public string getName()
+    private void SetSkin(string skin)
     {
-        return m_PlayerName;
-    }
+        // Set kin and name tag depending on name
 
-    private void setSkin(string skin)
-    {
         if (skin == "Blue")
         {
             m_SkinBlue.SetActive(true);
@@ -158,19 +111,81 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void setSpawn()
+    public void SetSpawn()
     {
         m_CharacterController.enabled = false;
         transform.position = m_SpawnPosition;
         m_CharacterController.enabled = true;
-        canMakeSound = true;
+
+        canMakeSound = true; // Active sound
 
         if (m_AudioSource != null && canMakeSound == true)
         {
             m_AudioSource.PlayOneShot(m_TauntSound);
         }
+    }
 
-        Debug.Log("Spawn position : " + m_SpawnPosition + "| Position actuelle : " + this.transform.position);
+    public string GetName()
+    {
+        return m_PlayerName;
+    }
+
+    public float GetPv()
+    {
+        return m_Pv;
+    }
+
+    public string GetDevice()
+    {
+        return m_Device;
+    }
+
+    public int GetScore()
+    {
+        return m_PlayerScore;
+    }
+
+    public bool IsPlayerOne()
+    {
+        // For know if this player is the player one or the player two
+
+        if (m_PlayerName == "J1")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void Restart(bool asWon)
+    {
+        // Disabled Character controller
+        m_CharacterController.enabled = false;
+
+        // Set player at spawn position
+        transform.position = m_SpawnPosition;
+
+        // Reset PV
+        SetPV(m_PvOrigin);
+
+        // Unset Current Player
+        m_AttackZone.UnsetCurrentPlayer();
+
+        if (asWon)
+        {
+            // Increment score & play Tount sound
+            m_PlayerScore++;
+
+            if (m_AudioSource != null && canMakeSound == true)
+            {
+                m_AudioSource.PlayOneShot(m_TauntSound);
+            }
+        }
+
+        // Enabled Chracter Controller
+        m_CharacterController.enabled = true;
     }
 
     public void TakeDamage(float damage, Vector3 attackPosition, float knockbackForce, float knockbackTime)
@@ -183,6 +198,7 @@ public class PlayerController : MonoBehaviour
 
         if (m_AudioSource != null && canMakeSound == true)
         {
+            // Play a random sound
             int random = Random.Range(0, 3);
 
             AudioClip randomClip;
@@ -203,15 +219,20 @@ public class PlayerController : MonoBehaviour
             m_AudioSource.PlayOneShot(randomClip);
         }
 
+        // Play animation
         m_AnimatorDamage.Play("Damage", 0, 0f);
+
+        // Apply weapon Konckback
         StartCoroutine(ApplyKnockback(attackPosition, knockbackForce, knockbackTime));
     }
 
     public IEnumerator ApplyKnockback(Vector3 attackPosition, float knockbackForce, float knockbackTime)
     {
+        // Set Knockback direction
         Vector3 knockbackDirection = (transform.position - attackPosition).normalized;
         float startTime = Time.time;
 
+        // Move player
         while (Time.time < startTime + knockbackTime)
         {
             m_CharacterController.Move(knockbackDirection * knockbackForce * Time.deltaTime);
@@ -221,11 +242,13 @@ public class PlayerController : MonoBehaviour
 
     public void OnAttack()
     {
+        // Play animation
         m_AnimatorWeapon.SetTrigger("Attack");
 
         
         if (m_AudioSource != null && canMakeSound == true)
         {
+            // Play a random attack sound
             int random = Random.Range(0, 3);
 
             AudioClip randomClip;
@@ -243,29 +266,18 @@ public class PlayerController : MonoBehaviour
                 randomClip = m_AttackSound3;
             }
 
-            m_AudioSource.PlayOneShot(m_Weappon.getSound());
+            m_AudioSource.PlayOneShot(m_Weappon.GetSound());
             m_AudioSource.PlayOneShot(randomClip);
         }
 
-        if (m_AttackZone.getCurrentPlayer() != null)
+        if (m_AttackZone.GetCurrentPlayer() != null)
         {
-            Debug.Log("Attack !!");
-            if (m_AttackZone.getCurrentPlayer().getPv() <= 0) { 
+            if (m_AttackZone.GetCurrentPlayer().GetPv() <= 0) { 
                 return; 
             }
-            m_AttackZone.getCurrentPlayer().TakeDamage(m_Weappon.getDamage(), transform.position, m_Weappon.getKnockbackForce(), m_Weappon.getKnockbackTime());
-        }
-    }
 
-    public bool isPlayerOne()
-    {
-        if (m_PlayerName == "J1")
-        {
-            return true;
-        }
-        else
-        {
-            return false;
+            // Apply damage on other player
+            m_AttackZone.GetCurrentPlayer().TakeDamage(m_Weappon.GetDamage(), transform.position, m_Weappon.GetKnockbackForce(), m_Weappon.GetKnockbackTime());
         }
     }
 
@@ -279,8 +291,10 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Dash()
     {
+        // block dooble or more dash
         canDash = false;
         
+        // Set dash direction
         Vector3 dashDirection = m_CharacterController.velocity.normalized;
 
         if (dashDirection == Vector3.zero)
@@ -290,11 +304,13 @@ public class PlayerController : MonoBehaviour
 
         float startTime = Time.time;
 
+        // Play dash sound
         if (m_AudioSource != null && canMakeSound == true)
         {
             m_AudioSource.PlayOneShot(m_DashSound);
         }
 
+        // Move player
         while (Time.time < startTime + dashDuration)
         {
             m_CharacterController.Move(dashDirection * dashSpeed * Time.deltaTime);
@@ -302,7 +318,10 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
+        // Play cooldown
         yield return new WaitForSeconds(dashCooldown);
+
+        // deblock dash
         canDash = true;
     }
 }

@@ -8,6 +8,7 @@ public class StartButton : MonoBehaviour
 {
     public GlobalInput inputActions;
 
+    [Header("UI Objects")]
     [SerializeField] private GameObject WaitingScreen;
     [SerializeField] private GameObject PvScreen;
 
@@ -18,19 +19,21 @@ public class StartButton : MonoBehaviour
 
     private void OnEnable()
     {
+        // Set input action for gamepad
         inputActions.Navigation.EnterGame.Enable();
         inputActions.Navigation.EnterGame.performed += OnEnterGame;
     }
 
     private void OnDisable()
     {
+        // Unset input action for gamepad
         inputActions.Navigation.EnterGame.Disable();
         inputActions.Navigation.EnterGame.performed -= OnEnterGame;
     }
 
     private void OnEnterGame(InputAction.CallbackContext context)
     {
-        if (PlayerManager.Instance.FirstPlayer != null && PlayerManager.Instance.SecondPlayer != null)
+        if (PlayerManager.Instance.FirstPlayer != null && PlayerManager.Instance.SecondPlayer != null) // If 2 players exist
         {
             StartGame();
         }
@@ -40,15 +43,20 @@ public class StartButton : MonoBehaviour
     {
         if (WaitingScreen != null && PvScreen != null)
         {
-            Time.timeScale = 1;
+            // Resume game
+            Time.timeScale = 1; 
+
+            // Manage UI
             WaitingScreen.SetActive(false);
             PvScreen.SetActive(true);
-            // Cache la souris
+
+            // Hidden mouse
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
-            PlayerManager.Instance.FirstPlayer.setSpawn();
-            PlayerManager.Instance.SecondPlayer.setSpawn();
+            // Set players at spawn position
+            PlayerManager.Instance.FirstPlayer.SetSpawn();
+            PlayerManager.Instance.SecondPlayer.SetSpawn();
         }
     }
 }

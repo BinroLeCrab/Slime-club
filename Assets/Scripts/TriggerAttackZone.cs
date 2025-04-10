@@ -10,33 +10,36 @@ public class TriggerAttackZone : MonoBehaviour
     [SerializeField] private GameObject m_Me;
 
     private const string PLAYER_TAG = "Player";
-    private GameObject currentOject;
+
+    private GameObject currentObject;
     private PlayerController currentPlayer;
 
     private void OnTriggerEnter(Collider other)
     {
-        currentOject = other.gameObject;
-        if (currentOject.tag == PLAYER_TAG && currentOject.GetComponent<PlayerController>() != m_Me.GetComponent<PlayerController>())
+        currentObject = other.gameObject;
+        if (currentObject.tag == PLAYER_TAG && currentObject.GetComponent<PlayerController>() != m_Me.GetComponent<PlayerController>())
         {
-            currentPlayer = currentOject.GetComponent<PlayerController>();
+            // If enter object is a player and not me, set as current
+            currentPlayer = currentObject.GetComponent<PlayerController>();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        currentOject = other.gameObject;
-        if (currentOject.tag == PLAYER_TAG && currentOject.GetComponent<PlayerController>() != m_Me.GetComponent<PlayerController>())
+        currentObject = other.gameObject;
+        if (currentObject.tag == PLAYER_TAG && currentObject.GetComponent<PlayerController>() != m_Me.GetComponent<PlayerController>())
         {
-            currentPlayer = null;
+            // If exit object is a player and not me, unset as current
+            UnsetCurrentPlayer();
         }
     }
 
-    public PlayerController getCurrentPlayer()
+    public PlayerController GetCurrentPlayer()
     {
         return currentPlayer;
     }
 
-    public void unsetCurrentPlayer()
+    public void UnsetCurrentPlayer()
     {
         currentPlayer = null;
     }

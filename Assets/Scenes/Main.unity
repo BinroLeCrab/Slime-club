@@ -564,6 +564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d96ed65eaf45664aa2b5e905990f684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_playerInputManager: {fileID: 182688376}
   m_PvOrigin: 250
   m_FirstPlayerPosition: {fileID: 26013103}
   m_SecondPlayerPosition: {fileID: 1784380028}
@@ -1366,15 +1367,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5d400d022a21b84d95a910c75f66197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EndScreen: {fileID: 1747295604}
-  PvScreen: {fileID: 1475852629}
-  PvBarJ1: {fileID: 877564720}
-  PvBarJ2: {fileID: 442572455}
-  LooserText: {fileID: 0}
-  RoundText: {fileID: 960720921}
-  m_Sound: {fileID: 1768241792}
   m_MaxRoundNumber: 3
   m_CurrentRound: 0
+  EndScreen: {fileID: 1747295604}
+  PvScreen: {fileID: 1475852629}
+  RoundText: {fileID: 960720921}
+  PvBarJ1: {fileID: 877564720}
+  PvBarJ2: {fileID: 442572455}
+  m_Sound: {fileID: 1768241792}
 --- !u!4 &1768241791
 Transform:
   m_ObjectHideFlags: 0

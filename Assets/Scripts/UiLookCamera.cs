@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class UiLookCamera : MonoBehaviour
 {
-    private Quaternion initialRotation;
+    private Quaternion m_InitialRotation;
 
     private void Start()
     {
+        // Get and set UI Element at good rotation
         transform.LookAt(Camera.main.transform);
         transform.Rotate(0, 180, 0);
-        initialRotation = transform.rotation;
+        m_InitialRotation = transform.rotation;
     }
 
     private void Update()
     {
-        transform.rotation = initialRotation;
+        // Keep element in this rotation
+        transform.rotation = m_InitialRotation;
     }
 }

@@ -15,12 +15,14 @@ public class RestartButton : MonoBehaviour
 
     private void OnEnable()
     {
+        // Set input action for gamepad
         inputActions.Navigation.EnterGame.Enable();
         inputActions.Navigation.EnterGame.performed += OnEnterGame;
     }
 
     private void OnDisable()
     {
+        // Unset input action for gamepad
         inputActions.Navigation.EnterGame.Disable();
         inputActions.Navigation.EnterGame.performed -= OnEnterGame;
     }
@@ -35,6 +37,6 @@ public class RestartButton : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // ReLoad the Scene at the start
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Reload the Scene at the start
     }
 }

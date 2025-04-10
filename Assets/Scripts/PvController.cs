@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class PvController : MonoBehaviour
 {
+    [Header("UI Objects")]
     [SerializeField] private Image m_PvBar;
     [SerializeField] private TextMeshProUGUI m_PvBarText;
     [SerializeField] private GameObject m_Score;
@@ -18,6 +19,7 @@ public class PvController : MonoBehaviour
 
     public void UpdateScore(int score)
     {
+        // Display a number of icon depending on score
         if (score >= 1)
         {
             Debug.Log("Score 1");

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class WaitingScreenController : MonoBehaviour
 {
-    [Header("Child Object")]
+    [Header("Childs Objects")]
     [SerializeField] public GameObject m_WaitingText;
     [SerializeField] public GameObject m_SpriteSlime;
     [SerializeField] public GameObject m_DeviceIcon;
@@ -14,7 +14,7 @@ public class WaitingScreenController : MonoBehaviour
 
     public void SetDeviceIcon(string device)
     {
-        //Active the good device icon
+        //Active the good icon depending on device
 
         //If device is a KeyboardMouse
         if (device == "KeyboardMouse")
@@ -23,7 +23,7 @@ public class WaitingScreenController : MonoBehaviour
             m_DeviceIcon.transform.Find("Keyboard Active").gameObject.SetActive(true);
         }
 
-        //Gamepad
+        //If device is a KeyboardMouse
         if (device == "Gamepad")
         {
             m_DeviceIcon.transform.Find("Gamepad Initial").gameObject.SetActive(false);

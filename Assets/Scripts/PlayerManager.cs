@@ -5,19 +5,27 @@ using UnityEngine.InputSystem;
 
 public class PlayerManager : MonoBehaviour
 {
+    [Header("Input Manager")]
+    [SerializeField] private PlayerInputManager m_playerInputManager;
+
+    [Header("PV")]
     [SerializeField] private float m_PvOrigin;
+
+    [Header("Spawn position")]
     [SerializeField] private Transform m_FirstPlayerPosition;
     [SerializeField] private Transform m_SecondPlayerPosition;
+
+    [Header("Spawn audio")]
     [SerializeField] private AudioSource m_Sound;
 
+    // Create a instance
     public static PlayerManager Instance { get; private set; }
     public PlayerController FirstPlayer { get; private set; }
     public PlayerController SecondPlayer { get; private set; }
 
-    private PlayerInputManager m_playerInputManager;
-
     private void Awake()
     {
+        // Set or destroy instance
         if (Instance == null)
         {
             Instance = this;
@@ -27,11 +35,11 @@ public class PlayerManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        m_playerInputManager = GetComponent<PlayerInputManager>();
     }
 
     public void OnEnable()
     {
+        // Follow to event
         if (m_playerInputManager != null)
         {
             m_playerInputManager.onPlayerJoined += OnPlayerJoined;
@@ -40,6 +48,7 @@ public class PlayerManager : MonoBehaviour
 
     public void OnDisable()
     {
+        // Unfollow to event
         if (m_playerInputManager != null)
         {
             m_playerInputManager.onPlayerJoined -= OnPlayerJoined;
@@ -48,21 +57,21 @@ public class PlayerManager : MonoBehaviour
 
     private void OnPlayerJoined(PlayerInput playerInput)
     {
-        Debug.Log("Player Joined");
-
+        // Catch device using
         string deviceType = playerInput.currentControlScheme;
-        Debug.Log($"Joueur rejoint avec : {deviceType}");
 
         if (FirstPlayer == null)
         {
+            // Instance & nitialize first player
             FirstPlayer = playerInput.GetComponent<PlayerController>();
-            FirstPlayer.initPlayer(m_PvOrigin, "J1", "Red", deviceType, m_FirstPlayerPosition.position);
+            FirstPlayer.InitPlayer(m_PvOrigin, "J1", "Red", deviceType, m_FirstPlayerPosition.position);
             if (m_Sound != null) m_Sound.Play();
         }
         else if (SecondPlayer == null)
         {
+            // Instance & initialize second player
             SecondPlayer = playerInput.GetComponent<PlayerController>();
-            SecondPlayer.initPlayer(m_PvOrigin, "J2", "Blue", deviceType, m_SecondPlayerPosition.position);
+            SecondPlayer.InitPlayer(m_PvOrigin, "J2", "Blue", deviceType, m_SecondPlayerPosition.position);
             if (m_Sound != null) m_Sound.Play();
         }
         else
