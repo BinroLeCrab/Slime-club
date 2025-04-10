@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: RobinVigier et Thomas Bansront MMI
+  companyName: Robin Vigier et Thomas Bansront MMI
   productName: Slime Club
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
