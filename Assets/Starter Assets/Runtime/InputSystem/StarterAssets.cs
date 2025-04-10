@@ -71,15 +71,6 @@ public partial class @GlobalInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Escape"",
-                    ""type"": ""Button"",
-                    ""id"": ""119d5795-77fc-4c99-afee-161f4b47c466"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -272,6 +263,17 @@ public partial class @GlobalInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""57486754-6d4a-4c78-a0c0-ba9605a9162f"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""e42a51de-89db-43cb-980e-e9b17bb2bf31"",
                     ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
@@ -302,10 +304,78 @@ public partial class @GlobalInput: IInputActionCollection2, IDisposable
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Navigation"",
+            ""id"": ""c311c334-09a4-49c1-af55-0d804b91703f"",
+            ""actions"": [
+                {
+                    ""name"": ""EnterGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""e2de6a7a-3046-4172-9414-cec7b227431e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""47bf5f28-8c81-4b28-9726-cda94156d4f5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Info"",
+                    ""type"": ""Button"",
+                    ""id"": ""67415bee-fd43-4350-9462-3aad464ca60d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""b1d7fc48-fe74-4559-87a0-727ad96faf13"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""EnterGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d5aa1bbd-23d2-461f-9b21-2e21d4745503"",
+                    ""id"": ""29a2b1aa-b81d-4d29-80e5-f5cf77511cff"",
+                    ""path"": ""<SwitchProControllerHID>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""EnterGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb83d905-fbbf-4446-83cf-2a08b7be9f16"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""EnterGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""56550c87-c755-49ef-bc64-32ede98f2a1e"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -316,7 +386,7 @@ public partial class @GlobalInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ae05c8e2-8deb-443d-accf-3e540179a9e1"",
+                    ""id"": ""5928f9d4-f872-4a78-a289-86614feeefd3"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -327,7 +397,7 @@ public partial class @GlobalInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1e76b82f-2e76-440c-b366-ec9f40206779"",
+                    ""id"": ""bd5259bc-c01c-4706-b308-52721e773ca4"",
                     ""path"": ""<XInputController>/start"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -338,12 +408,23 @@ public partial class @GlobalInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b0a6ebdd-14bb-4c85-863b-d496180350ff"",
+                    ""id"": ""cf6f1b34-416d-4b73-b0cc-d995cbc399d0"",
                     ""path"": ""<DualShockGamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ae402493-ec9e-4b0b-b43a-e760b1273836"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Info"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -407,7 +488,11 @@ public partial class @GlobalInput: IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
-        m_Player_Escape = m_Player.FindAction("Escape", throwIfNotFound: true);
+        // Navigation
+        m_Navigation = asset.FindActionMap("Navigation", throwIfNotFound: true);
+        m_Navigation_EnterGame = m_Navigation.FindAction("EnterGame", throwIfNotFound: true);
+        m_Navigation_Escape = m_Navigation.FindAction("Escape", throwIfNotFound: true);
+        m_Navigation_Info = m_Navigation.FindAction("Info", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -474,7 +559,6 @@ public partial class @GlobalInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Dash;
-    private readonly InputAction m_Player_Escape;
     public struct PlayerActions
     {
         private @GlobalInput m_Wrapper;
@@ -484,7 +568,6 @@ public partial class @GlobalInput: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
-        public InputAction @Escape => m_Wrapper.m_Player_Escape;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -509,9 +592,6 @@ public partial class @GlobalInput: IInputActionCollection2, IDisposable
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
-            @Escape.started += instance.OnEscape;
-            @Escape.performed += instance.OnEscape;
-            @Escape.canceled += instance.OnEscape;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -531,9 +611,6 @@ public partial class @GlobalInput: IInputActionCollection2, IDisposable
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
-            @Escape.started -= instance.OnEscape;
-            @Escape.performed -= instance.OnEscape;
-            @Escape.canceled -= instance.OnEscape;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -551,6 +628,68 @@ public partial class @GlobalInput: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Navigation
+    private readonly InputActionMap m_Navigation;
+    private List<INavigationActions> m_NavigationActionsCallbackInterfaces = new List<INavigationActions>();
+    private readonly InputAction m_Navigation_EnterGame;
+    private readonly InputAction m_Navigation_Escape;
+    private readonly InputAction m_Navigation_Info;
+    public struct NavigationActions
+    {
+        private @GlobalInput m_Wrapper;
+        public NavigationActions(@GlobalInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @EnterGame => m_Wrapper.m_Navigation_EnterGame;
+        public InputAction @Escape => m_Wrapper.m_Navigation_Escape;
+        public InputAction @Info => m_Wrapper.m_Navigation_Info;
+        public InputActionMap Get() { return m_Wrapper.m_Navigation; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(NavigationActions set) { return set.Get(); }
+        public void AddCallbacks(INavigationActions instance)
+        {
+            if (instance == null || m_Wrapper.m_NavigationActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_NavigationActionsCallbackInterfaces.Add(instance);
+            @EnterGame.started += instance.OnEnterGame;
+            @EnterGame.performed += instance.OnEnterGame;
+            @EnterGame.canceled += instance.OnEnterGame;
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
+            @Info.started += instance.OnInfo;
+            @Info.performed += instance.OnInfo;
+            @Info.canceled += instance.OnInfo;
+        }
+
+        private void UnregisterCallbacks(INavigationActions instance)
+        {
+            @EnterGame.started -= instance.OnEnterGame;
+            @EnterGame.performed -= instance.OnEnterGame;
+            @EnterGame.canceled -= instance.OnEnterGame;
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
+            @Info.started -= instance.OnInfo;
+            @Info.performed -= instance.OnInfo;
+            @Info.canceled -= instance.OnInfo;
+        }
+
+        public void RemoveCallbacks(INavigationActions instance)
+        {
+            if (m_Wrapper.m_NavigationActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(INavigationActions instance)
+        {
+            foreach (var item in m_Wrapper.m_NavigationActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_NavigationActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public NavigationActions @Navigation => new NavigationActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -594,6 +733,11 @@ public partial class @GlobalInput: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+    }
+    public interface INavigationActions
+    {
+        void OnEnterGame(InputAction.CallbackContext context);
         void OnEscape(InputAction.CallbackContext context);
+        void OnInfo(InputAction.CallbackContext context);
     }
 }

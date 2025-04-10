@@ -429,22 +429,22 @@ PrefabInstance:
     - target: {fileID: 1345075558729096400, guid: b55c7de6b15cbbd4aa996aba16349d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1345075558729096400, guid: b55c7de6b15cbbd4aa996aba16349d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 357533125}
+      objectReference: {fileID: 596067257}
     - target: {fileID: 1345075558729096400, guid: b55c7de6b15cbbd4aa996aba16349d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+      value: OpenInfo
       objectReference: {fileID: 0}
     - target: {fileID: 1345075558729096400, guid: b55c7de6b15cbbd4aa996aba16349d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: NavigationController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1345075558729096400, guid: b55c7de6b15cbbd4aa996aba16349d18,
         type: 3}
@@ -673,7 +673,7 @@ GameObject:
   - component: {fileID: 357533127}
   m_Layer: 5
   m_Name: Credits
-  m_TagString: Untagged
+  m_TagString: UI_Info
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1351,12 +1351,6 @@ RectTransform:
   m_AnchoredPosition: {x: 350, y: 0}
   m_SizeDelta: {x: 700, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1108048847 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2122715562431923753, guid: b55c7de6b15cbbd4aa996aba16349d18,
-    type: 3}
-  m_PrefabInstance: {fileID: 1480517180}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1192301746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1425,6 +1419,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8716617098508480953, guid: d0cbce3582037da4d8b766e4f78f4b8b,
+        type: 3}
+      propertyPath: UI_Info
+      value: 
+      objectReference: {fileID: 357533125}
     - target: {fileID: 8716617098508480953, guid: d0cbce3582037da4d8b766e4f78f4b8b,
         type: 3}
       propertyPath: m_IsMain
@@ -1617,16 +1616,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1575952915}
+      objectReference: {fileID: 596067257}
     - target: {fileID: 1345075558729096400, guid: b55c7de6b15cbbd4aa996aba16349d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadLevel
+      value: LoadMain
       objectReference: {fileID: 0}
     - target: {fileID: 1345075558729096400, guid: b55c7de6b15cbbd4aa996aba16349d18,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayBouton, Assembly-CSharp
+      value: NavigationController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2122715562431923753, guid: b55c7de6b15cbbd4aa996aba16349d18,
         type: 3}
@@ -1741,11 +1740,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2122715562431923753, guid: b55c7de6b15cbbd4aa996aba16349d18,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1575952915}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b55c7de6b15cbbd4aa996aba16349d18, type: 3}
 --- !u!1001 &1575483236
 PrefabInstance:
@@ -1895,19 +1890,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1480517180}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1575952915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1108048847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5dbb425d5b185e4ca91796c7e456e85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneName: Main
 --- !u!1 &1694333209
 GameObject:
   m_ObjectHideFlags: 0
