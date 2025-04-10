@@ -37,8 +37,11 @@ public class NavigationController : MonoBehaviour
 
     public void BackToMenu()
     {
-        
+        // Reactive cursor
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Debug.Log("Retour au menu !");
+        // Back to menu
         SceneManager.LoadScene(0); 
 
     }
